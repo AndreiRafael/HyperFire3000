@@ -54,8 +54,6 @@ void hf::GameManager::begin_loop() {
 
 		hf::InputManager::get_instance()->update();
 
-		hf::AudioManager::get_instance()->update();
-
 		current_scene->update_entities();
 		current_scene->update();
 

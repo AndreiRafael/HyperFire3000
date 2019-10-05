@@ -4,9 +4,7 @@
 #include <string_view>
 #include <vector>
 
-#include <AL/al.h>
-#include <AL/alc.h>
-#include <alu.h>
+#include <SDL_mixer.h>
 
 namespace hf {
     class AudioManager {
@@ -15,20 +13,16 @@ namespace hf {
         AudioManager() {}
         ~AudioManager() {}
 
-        ALCdevice* al_device = nullptr;
-        ALCcontext* al_context = nullptr;
-        std::vector<ALuint> al_buffers;
-        std::vector<ALuint> al_sources;
-        int source_index = 0;
-
-        void update();
+        int current_channel = -1;
+        int channel_count = MIX_CHANNELS;
+        std::vector<Mix_Chunk*> chunks;
 
     public:
         static AudioManager* get_instance ();
 
-        void init(int source_count);
+        void init(int channel_count);
         int load_audio(std::string_view path);
-        void play_audio(int audio_id, float pitch = 1.f, float panning = 0.f);
+        void play_audio(int audio_id, float panning = 0.f);
 
         friend class GameManager;
     };

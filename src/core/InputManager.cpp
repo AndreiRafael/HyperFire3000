@@ -34,5 +34,8 @@ void hf::InputManager::update() {
             scene->broadcast_event(e);
             scene->process_event(e);
         }
+        if(e.type == SDL_QUIT){
+            GameManager::get_instance()->quit();
+        }
     }
 }

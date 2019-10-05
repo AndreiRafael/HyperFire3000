@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include <algorithm>
 
 void hf::Scene::clear_entities(){
     std::for_each(entities.begin(), entities.end(), [] (std::pair<int, Entity*> pair) { delete pair.second; });

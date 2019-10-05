@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <functional>
 #include <string_view>
 #include "Vec2.h"
 #include "Entity.h"

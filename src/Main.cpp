@@ -5,7 +5,7 @@
 #include "core/GameManager.h"
 #include "core/InputManager.h"
 #include "core/AudioManager.h"
-#include <GameScene.h>
+#include <ExampleScene.h>
 
 int main(int argc, char* argv[]) {
 	srand(time(NULL));
@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 	auto manager = hf::GameManager::get_instance();
 	auto audio_manager = hf::AudioManager::get_instance();
 
-	audio_manager->init(12);
+	audio_manager->init(32);
 
 	int width;
     int height;
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 	manager->init("Window", width, height);
 	manager->set_clear_color(255, 0, 255, 255);
 
-	manager->set_next_scene<GameScene>();
+	manager->set_next_scene<ExampleScene>();
 	manager->begin_loop();
 
 	manager->clear_instance();
